@@ -1,0 +1,9 @@
+.tabTrigger {
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.active {
+  color: var(--text-primary);
+}
