@@ -1,0 +1,45 @@
+.toggleThemeWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+
+.toggleTheme {
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  width: 60px;
+}
+
+.slider {
+  background-color: #ccc;
+  border-radius: 30px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.2s;
+}
+
+.slider:before {
+  background-color: #fff;
+  border-radius: 50%;
+  bottom: 4px;
+  content: '';
+  height: 22px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 22px;
+}
+
+input:checked + .slider {
+  background-color: cornflowerblue;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}

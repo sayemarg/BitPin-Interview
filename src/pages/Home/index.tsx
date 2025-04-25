@@ -33,22 +33,20 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="container">
-      <Tabs
-        onTabChange={(tabId) => {
-          setBaseSymbol(tabId as BASE_SYMBOLS);
-          setSliceSize(PAGE_SIZE);
-        }}
-        defaultSelectedId={BASE_SYMBOLS.IRT}
-      >
-        <TabsList centered>
-          <TabTrigger value={BASE_SYMBOLS.IRT}>{getMessage('base_irt')}</TabTrigger>
+    <Tabs
+      onTabChange={(tabId) => {
+        setBaseSymbol(tabId as BASE_SYMBOLS);
+        setSliceSize(PAGE_SIZE);
+      }}
+      defaultSelectedId={BASE_SYMBOLS.IRT}
+    >
+      <TabsList centered>
+        <TabTrigger value={BASE_SYMBOLS.IRT}>{getMessage('base_irt')}</TabTrigger>
 
-          <TabTrigger value={BASE_SYMBOLS.USDT}>{getMessage('base_usdt')}</TabTrigger>
-        </TabsList>
+        <TabTrigger value={BASE_SYMBOLS.USDT}>{getMessage('base_usdt')}</TabTrigger>
+      </TabsList>
 
-        <MarketTable data={tableData} isLoading={isPending} onFetchNextPage={handleFetchNextPage} />
-      </Tabs>
-    </div>
+      <MarketTable data={tableData} isLoading={isPending} onFetchNextPage={handleFetchNextPage} />
+    </Tabs>
   );
 };
