@@ -1,0 +1,10 @@
+{
+  "base_irt": "پایه تومان",
+  "base_usdt": "پایه تتر",
+  "curreny_name": "نام ارز",
+  "price": "قیمت",
+  "market_cap": "ارزش بازار",
+  "volume_24_hours": "حجم معاملات (24 ساعت)",
+  "circulating_supply": "عرضه در گردش",
+  "view_details": "مشاهده جزئیات"
+}

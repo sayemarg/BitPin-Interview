@@ -1,0 +1,22 @@
+.tableRow:hover {
+  background-color: var(--background-gray-faded);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tableRow td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.currenyName {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.currenyName img {
+  border-radius: 50%;
+  display: block;
+  height: 50px;
+  width: 50px;
+}

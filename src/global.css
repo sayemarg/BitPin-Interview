@@ -1,9 +1,17 @@
 :root {
   --background-color: #fafefd;
+  --background-gray-faded: #f1f5f4;
   --primary-color: #00d890;
+  --primary-color-hover: #1eb980;
   --text-primary: #002b1e;
   --text-secondary: #676767;
   --border-color: #b2b2b2;
+
+  --break-point-sm: 40rem;
+  --break-point-md: 48rem;
+  --break-point-lg: 64rem;
+  --break-point-xl: 80rem;
+  --break-point-2xl: 96rem;
 }
 
 * {
@@ -15,4 +23,10 @@
 body {
   margin: 0;
   background-color: var(--background-color);
+}
+
+.container {
+  max-width: var(--break-point-xl);
+  margin-left: auto;
+  margin-right: auto;
 }

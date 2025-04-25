@@ -1,3 +1,5 @@
+import './global.css';
+
 import router from './router';
 import { QueryClientProvider } from './providers';
 import { RouterProvider } from 'react-router';

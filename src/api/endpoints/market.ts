@@ -1,4 +1,5 @@
 import type { AxiosRequestConfig } from 'axios';
+import type { IListResult, IMarketInfo } from '../types';
 import { axiosInstance } from '../axios';
 
 type ID = string | number;
@@ -13,7 +14,7 @@ interface IGetTransactionsParams {
 }
 
 export const getMarkets = (config?: AxiosRequestConfig) => {
-  return axiosInstance.get('/v1/mkt/markets/', config);
+  return axiosInstance.get<IListResult<IMarketInfo>>('/v1/mkt/markets/', config);
 };
 
 export const getMarketOrders = ({ marketId, type }: IGetOrdersParams, config?: AxiosRequestConfig) => {

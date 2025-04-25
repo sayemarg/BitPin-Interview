@@ -1,0 +1,47 @@
+.tableContainer {
+  max-height: 85vh;
+  overflow: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table colgroup col {
+  min-width: auto;
+}
+
+.table colgroup col:nth-child(1) {
+  width: 20%;
+}
+
+.table colgroup col:nth-child(2) {
+  width: 15%;
+}
+
+.table colgroup col:nth-child(3) {
+  width: 15%;
+}
+
+.table colgroup col:nth-child(4) {
+  width: 20%;
+}
+
+.table colgroup col:nth-child(5) {
+  width: 15%;
+}
+.table colgroup col:nth-child(6) {
+  width: 15%;
+}
+
+.table thead {
+  background-color: var(--background-color);
+  position: sticky;
+  top: 0;
+}
+
+.table thead th {
+  padding: 0.5rem;
+  text-align: center;
+}
