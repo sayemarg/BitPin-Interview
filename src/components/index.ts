@@ -4,3 +4,4 @@ export * from './MarketTable';
 export * from './SkeletonLoading';
 export * from './Tabs';
 export * from './Tabs/components';
+export * from './TextInput';

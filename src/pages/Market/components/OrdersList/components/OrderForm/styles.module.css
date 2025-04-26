@@ -1,0 +1,20 @@
+.form {
+  background-color: var(--background-gray-faded);
+  border-radius: 0.5rem;
+  margin: auto;
+  padding: 1rem;
+}
+
+.form h4 {
+  margin-top: 0;
+}
+
+.gridContainer {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.gridContainer:not(:last-child) {
+  margin-bottom: 1rem;
+}

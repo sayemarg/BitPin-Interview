@@ -11,6 +11,13 @@
   "sell_orders": "سفارشات فروش",
   "transactions": "معاملات",
   "amount": "مقدار",
-  "total": "کل",
-  "time": "زمان"
+  "total_price": "قیمت کل",
+  "time": "زمان",
+  "submit_order_form": "فرم ثبت سفارش",
+  "percent": "درصد",
+  "amount_sum": "مجموع مقادیر",
+  "total_price_sum": "مجموع قیمت کل",
+  "price_mean": "میانگین قیمت",
+  "order_amount": "مقدار سفارش",
+  "order_price": "مبلغ سفارش"
 }

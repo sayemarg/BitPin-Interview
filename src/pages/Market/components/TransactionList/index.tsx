@@ -1,6 +1,7 @@
 import { MarketList, type IMarketListColumn } from '../../../../components';
 import { getMarketTransactions, type IMarketTransaction } from '../../../../api';
 import { getMessage } from '../../../../utils/translate';
+import { renderNumber, renderTime } from '../../../../utils/render';
 import { useQuery } from '@tanstack/react-query';
 
 interface Props {
@@ -8,9 +9,9 @@ interface Props {
 }
 
 const columns: IMarketListColumn<IMarketTransaction>[] = [
-  { title: getMessage('price'), render: (row) => row.price },
+  { title: getMessage('price'), render: (row) => renderNumber(row.price) },
   { title: getMessage('amount'), render: (row) => row.match_amount },
-  { title: getMessage('time'), render: (row) => row.time },
+  { title: getMessage('time'), render: (row) => renderTime(row.time) },
 ];
 
 const UPDATE_INTERVAL = 3 * 1000;

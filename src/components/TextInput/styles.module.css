@@ -1,0 +1,16 @@
+.textInput {
+  background-color: var(--background-gray-faded2);
+  border-color: transparent;
+  border-radius: 0.5rem;
+  border: none;
+  color: var(--text-primary);
+  height: 2.5rem;
+  outline: none;
+  padding: 0.25rem 0.75rem;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.textInput:focus {
+  border-bottom: 1px solid var(--border-color);
+}
