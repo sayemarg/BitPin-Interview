@@ -71,3 +71,24 @@ export interface IMarketOrderBookInfo {
   time: string;
   value: string;
 }
+
+export interface IMarketOrder {
+  amount: string;
+  price: string;
+  remain: string;
+  value: string;
+}
+
+export interface IMarketOrderResponse {
+  orders: IMarketOrder[];
+  volume: string;
+}
+
+export interface IMarketTransaction {
+  match_amount: string;
+  match_id: string;
+  price: string;
+  time: number;
+  type: 'buy' | 'sell';
+  value: string;
+}

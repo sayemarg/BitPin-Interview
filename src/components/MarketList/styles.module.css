@@ -1,0 +1,22 @@
+.marketList span {
+  text-align: center;
+}
+
+.marketList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.marketList ul li:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+li.dataRow {
+  padding: 0.25rem 0;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}

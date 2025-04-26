@@ -6,5 +6,11 @@
   "market_cap": "ارزش بازار",
   "volume_24_hours": "حجم معاملات (24 ساعت)",
   "circulating_supply": "عرضه در گردش",
-  "view_details": "مشاهده جزئیات"
+  "view_details": "مشاهده جزئیات",
+  "buy_orders": "سفارشات خرید",
+  "sell_orders": "سفارشات فروش",
+  "transactions": "معاملات",
+  "amount": "مقدار",
+  "total": "کل",
+  "time": "زمان"
 }
