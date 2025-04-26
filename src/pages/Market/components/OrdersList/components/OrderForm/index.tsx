@@ -1,4 +1,5 @@
 import Styles from './styles.module.css';
+import { Decimal } from 'decimal.js';
 import { TextInput } from '../../../../../../components';
 import { getMessage } from '../../../../../../utils/translate';
 import { renderNumber } from '../../../../../../utils/render';
@@ -7,15 +8,15 @@ import { type ChangeEventHandler, useState } from 'react';
 const MAX_DECIMALS = 4;
 
 interface Props {
-  totalRemain?: number;
-  totalValue?: number;
-  averagePrice?: number;
+  totalRemain?: Decimal;
+  totalValue?: Decimal;
+  averagePrice?: Decimal;
 }
 
-export const OrderForm = ({ totalRemain = 0, totalValue = 0, averagePrice = 0 }: Props) => {
+export const OrderForm = ({ totalRemain = Decimal(0), totalValue = Decimal(0), averagePrice = Decimal(0) }: Props) => {
   const [percent, setPercent] = useState<number>();
 
-  const remainByPercent = percent ? (totalRemain * percent) / 100 : 0;
+  const remainByPercent = percent ? totalRemain.mul(percent / 100) : undefined;
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const value = event.target.value;
@@ -49,7 +50,7 @@ export const OrderForm = ({ totalRemain = 0, totalValue = 0, averagePrice = 0 }:
       <div className={Styles.gridContainer}>
         <span>{getMessage('amount_sum')}</span>
 
-        <span>{renderNumber(totalRemain)}</span>
+        <span>{totalRemain.toString()}</span>
       </div>
 
       <div className={Styles.gridContainer}>
@@ -80,13 +81,13 @@ export const OrderForm = ({ totalRemain = 0, totalValue = 0, averagePrice = 0 }:
       <div className={Styles.gridContainer}>
         <span>{getMessage('order_amount')}</span>
 
-        <span>{renderNumber(remainByPercent)}</span>
+        <span>{remainByPercent?.toString() ?? 0}</span>
       </div>
 
       <div className={Styles.gridContainer}>
         <span>{getMessage('order_price')}</span>
 
-        <span>{renderNumber(remainByPercent * averagePrice)}</span>
+        <span>{remainByPercent ? renderNumber(remainByPercent.mul(averagePrice)) : 0}</span>
       </div>
     </form>
   );

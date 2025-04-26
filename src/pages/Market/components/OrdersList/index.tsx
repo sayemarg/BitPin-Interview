@@ -1,3 +1,4 @@
+import { Decimal } from 'decimal.js';
 import { MarketList, type IMarketListColumn } from '../../../../components';
 import { OrderForm } from './components';
 import { getMarketOrders, type IMarketOrder } from '../../../../api';
@@ -27,11 +28,11 @@ export const OrdersList = ({ marketId, type }: Props) => {
 
   const orders = data?.data.orders.slice(0, 10);
 
-  const totalRemain = orders?.reduce((total, order) => Number(total) + Number(order.remain), 0);
+  const totalRemain = orders?.reduce<Decimal>((total, order) => total.add(order.remain), Decimal(0));
 
-  const totalValue = orders?.reduce((total, order) => Number(total) + Number(order.value), 0);
+  const totalValue = orders?.reduce<Decimal>((total, order) => total.add(order.value), Decimal(0));
 
-  const averagePrice = totalValue && totalRemain ? totalValue / totalRemain : 0;
+  const averagePrice = totalValue && totalRemain && !totalRemain.isZero() ? totalValue.div(totalRemain) : undefined;
 
   return (
     <>
