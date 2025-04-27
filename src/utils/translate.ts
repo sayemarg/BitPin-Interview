@@ -1,4 +1,4 @@
-import messages from '../data/messages.json';
+import messages from '@/data/messages.json';
 
 type MessageKey = keyof typeof messages;
 

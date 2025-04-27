@@ -1,9 +1,9 @@
 import Styles from './style.module.css';
-import type { IMarketInfo } from '../../../../api';
-import { Button } from '../../../Button';
+import type { IMarketInfo } from '@/api';
+import { Button } from '@/components';
 import { Link } from 'react-router';
-import { getMessage } from '../../../../utils/translate';
-import { renderNumber } from '../../../../utils/render';
+import { getMessage } from '@/utils/translate';
+import { renderNumber } from '@/utils/render';
 
 interface Props {
   marketInfo: IMarketInfo;

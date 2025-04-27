@@ -1,7 +1,7 @@
-import { MarketList, type IMarketListColumn } from '../../../../components';
-import { getMarketTransactions, type IMarketTransaction } from '../../../../api';
-import { getMessage } from '../../../../utils/translate';
-import { renderNumber, renderTime } from '../../../../utils/render';
+import { MarketList, type IMarketListColumn } from '@/components';
+import { getMarketTransactions, type IMarketTransaction } from '@/api';
+import { getMessage } from '@/utils/translate';
+import { renderNumber, renderTime } from '@/utils/render';
 import { useQuery } from '@tanstack/react-query';
 
 interface Props {

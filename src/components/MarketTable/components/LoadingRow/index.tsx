@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import { SkeletonLoading } from '../../../SkeletonLoading';
+import { SkeletonLoading } from '@/components';
 
 export const LoadingRow = () => {
   const style: CSSProperties = { height: '3rem', borderRadius: '10px' };

@@ -1,8 +1,8 @@
 import Styles from './styles.module.css';
 import { Decimal } from 'decimal.js';
-import { TextInput } from '../../../../../../components';
-import { getMessage } from '../../../../../../utils/translate';
-import { renderNumber } from '../../../../../../utils/render';
+import { TextInput } from '@/components';
+import { getMessage } from '@/utils/translate';
+import { renderNumber } from '@/utils/render';
 import { type ChangeEventHandler, useState } from 'react';
 
 const MAX_DECIMALS = 4;

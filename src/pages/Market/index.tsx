@@ -1,6 +1,6 @@
 import { OrdersList, TransactionList } from './components';
-import { TabContent, Tabs, TabsList, TabTrigger } from '../../components';
-import { getMessage } from '../../utils/translate';
+import { TabContent, Tabs, TabsList, TabTrigger } from '@/components';
+import { getMessage } from '@/utils/translate';
 import { useParams } from 'react-router';
 
 enum TAB_IDS {

@@ -1,7 +1,7 @@
 import Styles from './styles.module.css';
-import { IMarketInfo } from '../../api';
+import { IMarketInfo } from '@/api';
 import { LoadingRow, TableRow } from './components';
-import { getMessage } from '../../utils/translate';
+import { getMessage } from '@/utils/translate';
 import { useRef } from 'react';
 
 interface Props {

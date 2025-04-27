@@ -1,6 +1,6 @@
 import Styles from './styles.module.css';
 import type { Key, ReactNode } from 'react';
-import { SkeletonLoading } from '../SkeletonLoading';
+import { SkeletonLoading } from '@/components';
 import { clsx } from 'clsx';
 
 export interface IMarketListColumn<TData> {

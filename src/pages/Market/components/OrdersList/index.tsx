@@ -1,9 +1,9 @@
 import { Decimal } from 'decimal.js';
-import { MarketList, type IMarketListColumn } from '../../../../components';
+import { MarketList, type IMarketListColumn } from '@/components';
 import { OrderForm } from './components';
-import { getMarketOrders, type IMarketOrder } from '../../../../api';
-import { getMessage } from '../../../../utils/translate';
-import { renderNumber } from '../../../../utils/render';
+import { getMarketOrders, type IMarketOrder } from '@/api';
+import { getMessage } from '@/utils/translate';
+import { renderNumber } from '@/utils/render';
 import { useQuery } from '@tanstack/react-query';
 
 interface Props {

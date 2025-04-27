@@ -1,11 +1,15 @@
-import { BASE_SYMBOLS } from './constants';
-import { MarketTable, Tabs, TabsList, TabTrigger } from '../../components';
-import { getMarkets } from '../../api';
-import { getMessage } from '../../utils/translate';
+import { MarketTable, Tabs, TabsList, TabTrigger } from '@/components';
+import { getMarkets } from '@/api';
+import { getMessage } from '@/utils/translate';
 import { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const PAGE_SIZE = 20;
+
+enum BASE_SYMBOLS {
+  IRT = 'IRT',
+  USDT = 'USDT',
+}
 
 export const HomePage = () => {
   const [sliceSize, setSliceSize] = useState(PAGE_SIZE);
