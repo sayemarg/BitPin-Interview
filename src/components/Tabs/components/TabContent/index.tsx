@@ -6,9 +6,9 @@ import { useTabs } from '../../context';
 type Props = PropsWithChildren<{ value: TabID }>;
 
 export const TabContent = ({ value, children }: Props) => {
-  const { tabId } = useTabs();
+  const { activeTabId } = useTabs();
 
-  if (tabId !== value) return null;
+  if (activeTabId !== value) return null;
 
   return <div className={Styles.tabContent}>{children}</div>;
 };

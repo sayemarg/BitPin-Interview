@@ -1,8 +1,9 @@
 import Styles from './styles.module.css';
+import usePreventSwipeOnScroll from '../../hooks/usePreventSwipeOnScroll';
 import { IMarketInfo } from '@/api';
 import { LoadingRow, TableRow } from './components';
 import { getMessage } from '@/utils/translate';
-import { useRef } from 'react';
+import { type UIEventHandler } from 'react';
 
 interface Props {
   data?: IMarketInfo[];
@@ -11,12 +12,14 @@ interface Props {
 }
 
 export const MarketTable = ({ data, isLoading, onFetchNextPage }: Props) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const { handleScroll: handlePreventSwipeScroll, handleScrollEnd, handleTouchMove } = usePreventSwipeOnScroll();
 
-  const handleScroll = () => {
-    if (!containerRef.current || !onFetchNextPage) return;
+  const handleScroll: UIEventHandler<HTMLDivElement> = (event) => {
+    handlePreventSwipeScroll();
 
-    const { scrollTop, clientHeight, scrollHeight } = containerRef.current;
+    if (!onFetchNextPage) return;
+
+    const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
 
     if (scrollHeight * 0.95 <= scrollTop + clientHeight) {
       onFetchNextPage();
@@ -24,7 +27,12 @@ export const MarketTable = ({ data, isLoading, onFetchNextPage }: Props) => {
   };
 
   return (
-    <div ref={containerRef} className={Styles.tableContainer} onScroll={handleScroll}>
+    <div
+      className={Styles.tableContainer}
+      onScroll={handleScroll}
+      onScrollEnd={handleScrollEnd}
+      onTouchMove={handleTouchMove}
+    >
       <table className={Styles.table}>
         <colgroup>
           <col />

@@ -1,5 +1,5 @@
 import { OrdersList, TransactionList } from './components';
-import { TabContent, Tabs, TabsList, TabTrigger } from '@/components';
+import { TabContent, Tabs, TabsList, TabSwipeContainer, TabTrigger } from '@/components';
 import { getMessage } from '@/utils/translate';
 import { useParams } from 'react-router';
 
@@ -22,17 +22,19 @@ export const MarketDetailPage = () => {
         <TabTrigger value={TAB_IDS.TRANSACTIONS}>{getMessage('transactions')}</TabTrigger>
       </TabsList>
 
-      <TabContent value={TAB_IDS.BUY_ORDERS}>
-        <OrdersList marketId={id!} type="buy" />
-      </TabContent>
+      <TabSwipeContainer>
+        <TabContent value={TAB_IDS.BUY_ORDERS}>
+          <OrdersList marketId={id!} type="buy" />
+        </TabContent>
 
-      <TabContent value={TAB_IDS.SELL_ORDERS}>
-        <OrdersList marketId={id!} type="sell" />
-      </TabContent>
+        <TabContent value={TAB_IDS.SELL_ORDERS}>
+          <OrdersList marketId={id!} type="sell" />
+        </TabContent>
 
-      <TabContent value={TAB_IDS.TRANSACTIONS}>
-        <TransactionList marketId={id!} />
-      </TabContent>
+        <TabContent value={TAB_IDS.TRANSACTIONS}>
+          <TransactionList marketId={id!} />
+        </TabContent>
+      </TabSwipeContainer>
     </Tabs>
   );
 };

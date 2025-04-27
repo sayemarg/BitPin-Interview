@@ -1,4 +1,4 @@
-import { MarketTable, Tabs, TabsList, TabTrigger } from '@/components';
+import { MarketTable, Tabs, TabsList, TabSwipeContainer, TabTrigger } from '@/components';
 import { getMarkets } from '@/api';
 import { getMessage } from '@/utils/translate';
 import { useMemo, useState } from 'react';
@@ -50,7 +50,9 @@ export const HomePage = () => {
         <TabTrigger value={BASE_SYMBOLS.USDT}>{getMessage('base_usdt')}</TabTrigger>
       </TabsList>
 
-      <MarketTable data={tableData} isLoading={isPending} onFetchNextPage={handleFetchNextPage} />
+      <TabSwipeContainer>
+        <MarketTable data={tableData} isLoading={isPending} onFetchNextPage={handleFetchNextPage} />
+      </TabSwipeContainer>
     </Tabs>
   );
 };

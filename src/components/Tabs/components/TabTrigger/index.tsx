@@ -7,7 +7,7 @@ import { useTabs, useTabsList } from '../../context';
 type Props = PropsWithChildren<{ value: TabID }>;
 
 export const TabTrigger = ({ value, children }: Props) => {
-  const { tabId, onChange } = useTabs();
+  const { activeTabId, onChange } = useTabs();
 
   const { setTriggerRef } = useTabsList();
 
@@ -20,7 +20,7 @@ export const TabTrigger = ({ value, children }: Props) => {
     <div
       ref={refCallback}
       onClick={() => onChange(value)}
-      className={clsx(Styles.tabTrigger, tabId === value && Styles.active)}
+      className={clsx(Styles.tabTrigger, activeTabId === value && Styles.active)}
     >
       {children}
     </div>

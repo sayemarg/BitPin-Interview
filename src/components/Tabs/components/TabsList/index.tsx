@@ -1,13 +1,19 @@
 import Styles from './styles.module.css';
 import type { TabID } from '../../types';
+import type { TabTrigger } from '../TabTrigger';
+import { Children, type ComponentProps, type ReactElement, useCallback, useEffect, useMemo, useRef } from 'react';
 import { TabsListContext, type TabsListContextValues, useTabs } from '../../context';
 import { clsx } from 'clsx';
-import { type PropsWithChildren, useCallback, useEffect, useMemo, useRef } from 'react';
 
-type Props = PropsWithChildren<{ centered?: boolean }>;
+type TabTriggerProps = ComponentProps<typeof TabTrigger>;
+
+interface Props {
+  centered?: boolean;
+  children: ReactElement<TabTriggerProps>[];
+}
 
 export const TabsList = ({ centered, children }: Props) => {
-  const { tabId } = useTabs();
+  const { activeTabId, setTabIdList } = useTabs();
 
   const tabsListRef = useRef<HTMLDivElement>(null);
 
@@ -23,9 +29,9 @@ export const TabsList = ({ centered, children }: Props) => {
 
   useEffect(() => {
     const setIndicatorStyle = () => {
-      if (!tabId || !tabsListRef.current || !indicatorRef.current) return;
+      if (!activeTabId || !tabsListRef.current || !indicatorRef.current) return;
 
-      const tabTrigger = tabTriggerRefList.current[tabId];
+      const tabTrigger = tabTriggerRefList.current[activeTabId];
 
       if (!tabTrigger) return;
 
@@ -45,7 +51,13 @@ export const TabsList = ({ centered, children }: Props) => {
     return () => {
       window.removeEventListener('resize', setIndicatorStyle);
     };
-  }, [tabId]);
+  }, [activeTabId]);
+
+  useEffect(() => {
+    const tabIdList = Children.map(children, (child) => child.props.value);
+
+    setTabIdList(tabIdList);
+  }, [children, setTabIdList]);
 
   return (
     <div ref={tabsListRef} className={clsx(Styles.tabsList, centered && Styles.centered)}>
