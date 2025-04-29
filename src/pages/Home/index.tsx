@@ -22,7 +22,7 @@ export const HomePage = () => {
   });
 
   const baseSymbolMarkets = useMemo(
-    () => data?.data.results.filter((marketInfo) => marketInfo.currency2.code === baseSymbol),
+    () => data?.data.results?.filter((marketInfo) => marketInfo.currency2.code === baseSymbol),
     [data, baseSymbol]
   );
 

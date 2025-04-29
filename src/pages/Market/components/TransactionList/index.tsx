@@ -23,7 +23,7 @@ export const TransactionList = ({ marketId }: Props) => {
     refetchInterval: UPDATE_INTERVAL,
   });
 
-  const transactions = data?.data.slice(0, 10);
+  const transactions = data?.data?.slice(0, 10);
 
   return (
     <MarketList<IMarketTransaction> data={transactions} rowKey="match_id" columns={columns} isLoading={isPending} />

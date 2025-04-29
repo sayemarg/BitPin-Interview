@@ -26,7 +26,7 @@ export const OrdersList = ({ marketId, type }: Props) => {
     refetchInterval: UPDATE_INTERVAL,
   });
 
-  const orders = data?.data.orders.slice(0, 10);
+  const orders = data?.data.orders?.slice(0, 10);
 
   const totalRemain = orders?.reduce<Decimal>((total, order) => total.add(order.remain), Decimal(0));
 
